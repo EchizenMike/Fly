@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">		
+		<title>导出word测试</title>
+		<script src="https://www.layuicdn.com/layui/layui.js" charset="utf-8"></script>
+		<link href="https://www.layuicdn.com/layui/css/layui.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+		<script src="js/FileSaver.js"></script>
+		<script src="js/wordexport.js"></script>
+	</head>
+
+	<body>
+		<div id="export_test_page">
+		    <div class="card-body" >
+              	<label for="stu_photo">照片</label><br />
+              	<h5 id="stu_photo_load">获取中...</h5>
+                <img id="stu_photo" /><br />
+                <label for="stu_id">学籍号</label>
+                <h5 id="stu_id">获取中...</h5>
+                <label for="stu_name">姓名</label>
+                <h5 id="stu_name">获取中...</h5>
+                <label for="stu_sex">性别</label>
+              	<h5 id="stu_sex">获取中...</h5>
+              	<label for="stu_date">出生年月日</label>
+              	<h5 id="stu_date">获取中...</h5>
+              	<label for="stu_age">年龄</label>
+              	<h5 id="stu_age">获取中...</h5>
+              	<label for="stu_class_grade">班级</label>
+              	<h5 id="stu_class_grade">获取中...</h5>
+              	<label for="stu_premaj">入学专业</label>
+              	<h5 id="stu_premaj">获取中...</h5>
+              	<label for="stu_type">学生类型</label>
+              	<h5 id="stu_type">获取中...</h5>
+              	<label for="stu_maj_type">专业类型</label>
+              	<h5 id="stu_maj_type">获取中...</h5>
+              	<h5 id="stu_maj_type2">获取中...</h5>
+              	<h5 id="stu_maj_type3">获取中...</h5>
+              	<h5 id="stu_maj_type4">获取中...</h5>
+              	<label for="stu_maj">现所学专业</label>
+              	<h5 id="stu_maj">获取中...</h5>
+              	<h5 id="stu_maj2">获取中...</h5>
+              	<h5 id="stu_maj3">获取中...</h5>
+              	<h5 id="stu_maj4">获取中...</h5>
+              	<label for="stu_home">家庭联系方式</label>
+              	<h5 id="stu_home">获取中...</h5>
+              	<label for="stu_honor">所获奖励</label>
+              	<h5 id="stu_honor">获取中...</h5>
+              	<label for="stu_punish">惩戒记录</label>
+              	<h5 id="stu_punish">获取中...</h5>
+              </div>
+		</div>
+
+		<a class="page-btn" href="javascript:void(0)"> 导出 </a>
+	</body>
+
+<script>
+	 jQuery(document).ready(function($) {
+		$("a.page-btn").click(function(event) { 
+			$("#export_test_page").wordExport(); //打印id为page的div中的所有内容
+		});
+ });
+
+</script>
+</html>

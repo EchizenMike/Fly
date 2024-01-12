@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>管理员后台登录</title>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<meta name="author" content="yinqi">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/materialdesignicons.min.css" rel="stylesheet">
+<link href="css/style.min.css" rel="stylesheet">
+<style>
+.lyear-wrapper {
+    position: relative;
+}
+.lyear-login {
+    display: flex !important;
+    min-height: 100vh;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.login-center {
+    background: #fff;
+    min-width: 38.25rem;
+    padding: 2.14286em 3.57143em;
+    border-radius: 5px;
+    margin: 2.85714em 0;
+}
+.login-header {
+    margin-bottom: 1.5rem !important;
+}
+.login-center .has-feedback.feedback-left .form-control {
+    padding-left: 38px;
+    padding-right: 12px;
+}
+.login-center .has-feedback.feedback-left .form-control-feedback {
+    left: 0;
+    right: auto;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    z-index: 4;
+    color: #dcdcdc;
+}
+.login-center .has-feedback.feedback-left.row .form-control-feedback {
+    left: 15px;
+}
+</style>
+</head>
+  
+<body>
+<div class="row lyear-wrapper">
+  <div class="lyear-login">
+    <div class="login-center">
+      <div class="login-header text-center">
+        <a href="#"> <img alt="light year admin" src="images/logo-sidebar.png"> </a>
+      </div>
+      <form action="#!" method="post">
+        <div class="form-group has-feedback feedback-left">
+          <input id="log_user" type="text" placeholder="请输入管理员账号" class="form-control" name="username" id="username" />
+          <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
+        </div>
+        <div class="form-group has-feedback feedback-left">
+          <input id="log_pass" type="password" placeholder="请输入管理员密码" class="form-control" id="password" name="password" />
+          <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-block btn-primary" type="button" onclick="login()">登录</button>
+        </div>
+      </form>
+      <hr>
+      <footer class="col-sm-12 text-center">
+        <p class="m-b-0">Copyright &copy; 2020-2021. All rights reserved.<br /> 青岛市实验高级中学 版权所有<br /> 鲁ICP备06019373号-2</p>
+      </footer>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
+<script src="js/cookie.js"></script>
+<script src="https://www.layuicdn.com/layui/layui.js" charset="utf-8"></script>
+
+<script>
+	var layer;
+	layui.use('layer',function(){
+		layer = layui.layer;
+	});//加载layer模块
+</script>
+
+<script>
+		function login(){
+			var name = document.getElementById("log_user").value;
+			var pass = document.getElementById("log_pass").value;			
+//			$.ajax({
+//				type:"post",
+//				url:"",
+//				async:false,
+//				dataType:"json",
+//				data:{"Username":name},
+//				success:function(data){
+//					if(data.result == 1){
+//						//验证通过登录次数小于5词
+//					}else{
+//						layer.msg('账号登录设备数大于5台，该用户暂时不可再次登录！', {icon:5,anim:6});
+//						return false;
+//					}
+//				}
+//				
+//			});  暂时不予
+			
+		
+			$.ajax({
+				type:"post",
+				url:"./php/adminverify.php",
+				async:true,
+				dataType:'json',
+				data:{"Username":name,"Password":pass},
+				success:function(data){
+					if(data.result == 1){
+						setCookie("admin",name,7);
+						window.location.href  = 'admin_index.html';
+					}else if(data.result == -1){
+						layer.msg('账号登录设备数大于5台，该用户暂时不可再次登录！', {icon:5,anim:6});
+						return false;
+					}
+					else{
+						layer.msg('用户名或密码错误', {icon:5,anim:6});
+					}
+				}
+			});
+			//异步执行
+		layer.msg("<a style='color:black'>正在登录...</a>", {
+  					icon: 16,
+    				shade: 0.01,
+    				time:2*4000});
+		}
+	</script>
+<script>
+	//检查登录状态 cookie
+		window.onload = function(){
+			if(getCookie("adnub").toString() != ""){
+				window.location.href = 'admin_index.html';
+			}
+		}
+</script>
+</body>
+</html>

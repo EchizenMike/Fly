@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>平日成绩管理</title>
+		<link rel="icon" href="favicon.ico" type="image/ico">
+		<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+		<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+		<meta name="author" content="yinqi">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="css/style.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="js/jconfirm/jquery-confirm.min.css">
+		<link href="css/animate.css" rel="stylesheet">
+		<!--动画效果-->
+		<link href="https://www.layuicdn.com/layui/css/layui.css" rel="stylesheet" type="text/css" />
+		<!--时间选择插件-->
+		<link rel="stylesheet" href="js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+		<!--日期选择插件-->
+		<link rel="stylesheet" href="js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+		<link href="css/style.min.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div class="lyear-layout-web">
+			<div class="lyear-layout-container">
+
+				<!--页面主要内容-->
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-header">
+									<h4>成绩登记</h4>
+								</div>
+								<div class="card-body">
+									<form method="post" action="" class="site-form" onsubmit="return false;">
+										<div class="form-group">
+											<div class="row">
+												<div class="col-xs-3">
+													<label for="maj">主修专业</label>
+													<select class="form-control maj" id="stu_maj" name="stu_maj" size="1">
+														<option value="">请选择主修专业</option>
+													</select>
+												</div>
+												<div class="col-xs-3">
+													<label for="sumach">距离/秒数</label>
+													<input class="form-control" type="text" id="ls" placeholder="请输入...">
+												</div>
+												<div class="col-xs-3">
+													<label for="mjcont">成绩</label>
+													<input class="form-control" type="text" id="ach" placeholder="请输入...">
+												</div>
+												<div class="col-xs-3">
+													<label for="mjach">登记时间</label>
+													<!-- <input class="form-control" type="text" id="mjach" placeholder="请输入...">-->
+													<!--	 <input class="form-control js-datepicker" type="text" id="time" name="add_time" data-date-format="yyyy/mm/dd" placeholder="请选择具体时间" value="" data-side-by-side="true" data-locale="zh-cn" data-format="YYYY-MM-DD HH:mm" />-->
+													<input type="text" class="form-control layui-input" type="text" placeholder="请选择日期..." id="time" onfocus="this.blur();">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<button class="btn btn-primary sub" type="submit">保存</button>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-header">
+									<h4>历史成绩登记记录</h4>
+								</div>
+								<div class="card-body">
+									<table class="layui-hide" id="table" lay-filter="test"></table>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-header">
+									<h4>高考信息登记</h4>
+								</div>
+								<div class="card-body">
+									<form method="post" action="" class="site-form" onsubmit="return false;">
+										<div class="form-group">
+											<div class="row">
+												<div class="col-xs-3">
+													<label for="sumach">高考专业</label>
+													<input class="form-control" type="text" id="stu_gk_pro" placeholder="请输入高考专业...">
+												</div>
+												<div class="col-xs-3">
+													<label for="sumach">高考专业分数</label>
+													<input class="form-control" type="number" id="stu_gk_pro_ach" placeholder="请输入高考专业分数...">
+												</div>
+												<div class="col-xs-3">
+													<label for="mjcont">高考录取院校</label>
+													<input class="form-control" type="text" id="stu_gk_adm_sch" placeholder="请输入高考录取院校...">
+												</div>
+												<div class="col-xs-3">
+													<label for="sumach">高考文化成绩</label>
+													<input class="form-control" type="number" id="sumach" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+												</div>
+												<div class="col-xs-3">
+													<label for="mjcont">专项内容</label>
+													<input class="form-control" type="text" id="mjcont" placeholder="请输入...">
+												</div>
+												<div class="col-xs-3">
+													<label for="mjcont">专项成绩</label>
+													<input class="form-control" type="number" id="mjach" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+												</div>
+												<div class="col-xs-3" id="p_tj100">
+													<label for="tj_100">田径-100米成绩</label>
+													<input class="form-control" type="number" id="tj_100" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+												</div>
+												<div class="col-xs-3" id="p_tj_ldty">
+													<label for="tj_ldty">田径-立定跳远成绩</label>
+													<input class="form-control" type="number" id="tj_ldty" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+												</div>
+												<div class="col-xs-3" id="p_tj_qq">
+													<label for="tj_qq">田径-铅球成绩</label>
+													<input class="form-control" type="number" id="tj_qq" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<button class="btn btn-primary sub2" type="submit">保存</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--End 页面主要内容-->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script src="js/jconfirm/jquery-confirm.min.js"></script>
+		<script src="js/bootstrap-notify.min.js"></script>
+		<script type="text/javascript" src="js/lightyear.js"></script>
+		<script src="https://www.layuicdn.com/layui/layui.js" charset="utf-8"></script>
+
+		<!--时间选择插件-->
+		<script src="js/bootstrap-datetimepicker/moment.min.js"></script>
+		<script src="js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+		<script src="js/bootstrap-datetimepicker/locale/zh-cn.js"></script>
+		<!--日期选择插件-->
+		<script src="js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+		<script src="js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+		<script src="js/cookie.js"></script>
+		<script type="text/javascript">
+			$('.sub').on('click', function() {
+				var maj = document.getElementById("stu_maj").value;
+				var ls = document.getElementById("ls").value;
+				var ach = document.getElementById("ach").value;
+				var time = document.getElementById("time").value;
+
+				if(maj == '' || ls == '' || ach == '' || time == '') {
+					layer.msg('请填写完整信息！', {
+						icon: 2,
+						anim: 6
+					});
+					return false;
+				}
+
+				$.alert({
+					title: '确认',
+					content: '请仔细确认： <br> 您所填写的内容 <strong>准确无误</strong>！',
+					buttons: {
+						confirm: {
+							text: '确认',
+							btnClass: 'btn-primary',
+							action: function() {
+								var ls = document.getElementById("ls").value;
+								var ach = document.getElementById("ach").value;
+								var time = document.getElementById("time").value;
+								var name = window.location.href.split("=")[1];
+
+								var stu_name = null;
+								var stu_id = null;
+								$.ajax({
+									type: "post",
+									url: "./php/select_userinfo.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										'stu_name': name
+									},
+									success: function(data) {
+										if(data.code == 0) {
+											//	 			console.log(JSON.stringify(data))
+											stu_id = data.data[0].stu_id;
+											stu_name = data.data[0].stu_name;
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/insert_achinfo.php",
+									async: true,
+									dataType: 'json',
+									data: {
+										'username': name,
+										'stu_id': stu_id,
+										'stu_name': stu_name,
+										'ls': ls,
+										'maj': maj,
+										'ach': ach,
+										'time': time
+									}
+								});
+
+								lightyear.notify('保存成功！', 'success', 5000, 'mdi mdi-checkbox-marked-circle-outline', 'top', 'right');
+								setTimeout(function() {
+									window.location.reload()
+								}, 8000);
+							}
+						},
+						cancel: {
+							text: '取消',
+							action: function() {
+								lightyear.notify('取消操作！', 'danger', 5000, 'mdi mdi-close-circle-outline', 'top', 'right');
+							}
+						}
+					}
+				});
+			});
+		</script>
+		<script>
+			var layer;
+			layui.use('layer', function() {
+				layer = layui.layer;
+			}); //加载layer模块
+		</script>
+		<script type="text/html" id="toolbarDemo">
+			<div class="layui-btn-container">
+				<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+				<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+				<button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+			</div>
+		</script>
+
+		<script type="text/html" id="bar">
+			<!--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#table',
+					url: './php/select_achinfo.php',
+					method: 'post',
+					where: {
+						'stu_name': window.location.href.split("=")[1]
+					},
+					toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+						,
+					defaultToolbar: ['filter', 'exports', 'print'],
+					title: '历史成绩登记记录',
+					cols: [
+						[{
+							type: 'checkbox',
+							width: 40
+						}, {
+							field: 'num',
+							title: '登记序号',
+							width: 200,
+							unresize: true,
+							sort: true
+						}, {
+							field: 'maj',
+							title: '主修专业',
+							width: 200,
+							unresize: true,
+							sort: true
+						}, {
+							field: 'ls',
+							title: '距离/秒数',
+							width: 200,
+							edit: 'text'
+						}, {
+							field: 'ach',
+							title: '成绩',
+							width: 200,
+							edit: 'text'
+						}, {
+							field: 'time',
+							title: '登记时间',
+							width: 200,
+							edit: 'text'
+						}, {
+							fixed: 'right',
+							title: '操作',
+							toolbar: '#bar',
+							width: 200
+						}]
+					],
+					done: function(res, curr, count) {
+						$("table").css("width", "100%");
+					},
+					page: true
+				});
+
+				//头工具栏事件
+				table.on('toolbar(test)', function(obj) {
+					var checkStatus = table.checkStatus(obj.config.id);
+					switch(obj.event) {
+						case 'getCheckData':
+							var data = checkStatus.data;
+							layer.alert(JSON.stringify(data));
+							break;
+						case 'getCheckLength':
+							var data = checkStatus.data;
+							layer.msg('选中了：' + data.length + ' 个');
+							break;
+						case 'isAll':
+							layer.msg(checkStatus.isAll ? '全选' : '未全选');
+							break;
+
+					};
+				});
+
+				//监听行工具事件
+				table.on('tool(test)', function(obj) {
+					var data = obj.data;
+					//console.log(obj)
+					if(obj.event === 'del') {
+						layer.confirm('真的删除行么', function(index) {
+							$.ajax({
+								type: "post",
+								url: "./php/del_item.php",
+								async: true,
+								dataType: 'json',
+								data: {
+									'id': data.num
+								},
+								success: function(data) {
+									layer.msg('已删除记录！');
+								}
+							});
+							obj.del();
+							layer.close(index);
+						});
+					}
+
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			$.ajax({
+				type: "post",
+				url: "./php/select_ach_maj.php",
+				async: true,
+				dataType: 'json',
+				data: {
+					'user': window.location.href.split("=")[1]
+				},
+				success: function(data) {
+					var maj = document.getElementById("stu_maj");
+					var op = new Option(data.data[0].stu_maj_type + "-" + data.data[0].stu_maj, data.data[0].stu_maj_type + "-" + data.data[0].stu_maj);
+					maj.options.add(op);
+					var op = new Option(data.data[0].stu_maj_type2 + "-" + data.data[0].stu_maj2, data.data[0].stu_maj_type2 + "-" + data.data[0].stu_maj2);
+					maj.options.add(op);
+					var op = new Option(data.data[0].stu_maj_type3 + "-" + data.data[0].stu_maj3, data.data[0].stu_maj_type3 + "-" + data.data[0].stu_maj3);
+					maj.options.add(op);
+					var op = new Option(data.data[0].stu_maj_type4 + "-" + data.data[0].stu_maj4, data.data[0].stu_maj_type4 + "-" + data.data[0].stu_maj4);
+					maj.options.add(op);
+				}
+			});
+		</script>
+		<script>
+			window.onload = function() {
+				var name = window.location.href.split("=")[1];
+				$.ajax({
+					type: "post",
+					url: "./php/select_gkinfo.php",
+					async: true,
+					dataType: 'json',
+					data: {
+						'stu_name': name
+					},
+					success: function(data) {
+						if(data.code == 0) {
+							if(data.data[0].stu_type == '高水平运动员' || data.data[0].stu_type == '单独招生入学') {
+								document.getElementById("p_tj100").setAttribute("style", "display: none;");
+								document.getElementById("p_tj_ldty").setAttribute("style", "display: none;");
+								document.getElementById("p_tj_qq").setAttribute("style", "display: none;");
+								document.getElementById("sumach").value = data.data[0].stu_ach;
+								document.getElementById("mjcont").value = data.data[0].stu_pro_name;
+								document.getElementById("mjach").value = data.data[0].stu_pro_ach;
+
+								//新增3项
+								document.getElementById("stu_gk_pro").value = data.data[0].stu_gk_pro;
+								document.getElementById("stu_gk_pro_ach").value = data.data[0].stu_gk_pro_ach;
+								document.getElementById("stu_gk_adm_sch").value = data.data[0].stu_gk_adm_sch;
+							} else {
+								document.getElementById("sumach").value = data.data[0].stu_ach;
+								document.getElementById("mjcont").value = data.data[0].stu_pro_name;
+								document.getElementById("mjach").value = data.data[0].stu_pro_ach;
+								document.getElementById("tj_100").value = data.data[0].stu_tj_100_ach;
+								document.getElementById("tj_ldty").value = data.data[0].stu_tj_ldty_ach;
+								document.getElementById("tj_qq").value = data.data[0].stu_tj_qq_ach;
+
+								//新增3项
+								document.getElementById("stu_gk_pro").value = data.data[0].stu_gk_pro;
+								document.getElementById("stu_gk_pro_ach").value = data.data[0].stu_gk_pro_ach;
+								document.getElementById("stu_gk_adm_sch").value = data.data[0].stu_gk_adm_sch;
+							}
+
+						}
+					}
+				});
+			}
+		</script>
+		<script type="text/javascript">
+			$('.sub2').on('click', function() {
+				$.alert({
+					title: '确认',
+					content: '请仔细确认： <br> 您所填写的内容 <strong>准确无误</strong>！',
+					buttons: {
+						confirm: {
+							text: '确认',
+							btnClass: 'btn-primary',
+							action: function() {
+								var name = window.location.href.split("=")[1];
+								var sumach = document.getElementById("sumach").value;
+								var mjcont = document.getElementById("mjcont").value;
+								var mjach = document.getElementById("mjach").value;
+								var stu_tj_100_ach = document.getElementById("tj_100").value;
+								var stu_tj_ldty_ach = document.getElementById("tj_ldty").value;
+								var stu_tj_qq_ach = document.getElementById("tj_qq").value;
+								var stu_gk_pro = document.getElementById("stu_gk_pro").value;
+								var stu_gk_pro_ach = document.getElementById("stu_gk_pro_ach").value;
+								var stu_gk_adm_sch = document.getElementById("stu_gk_adm_sch").value;
+								$.ajax({
+									type: "post",
+									url: "./php/update_gkinfo.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										'stu_name': name,
+										'stu_ach': sumach,
+										'stu_pro_name': mjcont,
+										'stu_pro_ach': mjach,
+										'stu_tj_100_ach': stu_tj_100_ach,
+										'stu_tj_ldty_ach': stu_tj_ldty_ach,
+										'stu_tj_qq_ach': stu_tj_qq_ach,
+										'stu_gk_pro': stu_gk_pro,
+										'stu_gk_pro_ach': stu_gk_pro_ach,
+										'stu_gk_adm_sch': stu_gk_adm_sch
+									},
+									success: function(data) {
+										if(data.code == 0) {
+											lightyear.notify('保存成功！', 'success', 5000, 'mdi mdi-checkbox-marked-circle-outline', 'top', 'right');
+										} else {
+											lightyear.notify('保存失败！', 'danger', 5000, 'mdi mdi-close-circle-outline', 'top', 'right');
+										}
+									},
+									error: function(error) {
+										console.log(error)
+									}
+								});
+							}
+						},
+						cancel: {
+							text: '取消',
+							action: function() {
+								lightyear.notify('取消操作！', 'danger', 5000, 'mdi mdi-close-circle-outline', 'top', 'right');
+							}
+						}
+					}
+				});
+			});
+		</script>
+		<!--<script>
+	//防非法登录
+$(document).ready(function(){
+   var name = getCookie("admin").toString();
+	 if(name==""){//检查是否为超级管理员
+	 	alert("非管理员禁止访问！");
+	 	window.location.href = "about:black";
+	 	window.stop();
+	 	window.opener=null;
+	 	window.open('','_self');
+	 	window.close();//关闭窗口
+	 	return false;
+	 }
+	});//onload之前
+</script>-->
+		<script>
+			if(getCookie("admin").toString() == '') {
+				window.location.href = 'admin_login.html';
+			}
+		</script>
+		<script>
+			layui.use('laydate', function() {
+				var laydate = layui.laydate;
+
+				laydate.render({
+					elem: '#time',
+					type: 'day',
+					format: 'yyyy/MM/dd',
+					done: function(value, date, endDate) {
+						//do something
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>主页</title>
+		<link rel="icon" href="favicon.ico" type="image/ico">
+		<meta name="author" content="yinqi">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="css/style.min.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+	</head>
+  <style>
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+</style>
+	<body>
+		<div class="lyear-layout-web">
+			<div class="lyear-layout-container">
+				<!--左侧导航-->
+				<aside class="lyear-layout-sidebar">
+
+					<!-- logo -->
+					<div id="logo" class="sidebar-header">
+						<a href="index.html"><img src="images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+					</div>
+					<div class="lyear-layout-sidebar-scroll">
+
+						<nav class="sidebar-main">
+							<ul class="nav nav-drawer">
+								<li class="nav-item active">
+									<a href="index.html"><i class="mdi mdi-home"></i> 首页</a>
+								</li>
+
+								<li class="nav-item nav-item-has-subnav" id="m2">
+									<a href="javascript:void(0)"><i class="mdi mdi-account"></i>个人信息</a>
+									<ul class="nav nav-subnav">
+										<li>
+											<a href="lyear_forms_elements.html">个人信息维护</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="nav-item nav-item-has-subnav" id="m3">
+									<a href="javascript:void(0)"><i class="mdi mdi-content-paste"></i>成绩登记</a>
+									<ul class="nav nav-subnav">
+										<li>
+											<a href="lyear_pages_edit_ach.html">平日成绩登记</a>
+										</li>
+										<li>
+											<a href="lyear_pages_edit_gk_ach.html">高考信息登记</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+
+						<div class="sidebar-footer">
+							<p class="copyright">Copyright &copy; 2020. All rights reserved.<br /> 青岛市实验高级中学 版权所有<br /> 鲁ICP备06019373号-2</p>
+						</div>
+					</div>
+
+				</aside>
+				<!--End 左侧导航-->
+
+				<!--头部信息-->
+				<header class="lyear-layout-header">
+
+					<nav class="navbar navbar-default">
+						<div class="topbar">
+
+							<div class="topbar-left">
+								<div class="lyear-aside-toggler">
+									<span class="lyear-toggler-bar"></span>
+									<span class="lyear-toggler-bar"></span>
+									<span class="lyear-toggler-bar"></span>
+								</div>
+								<span class="navbar-page-title">首页 </span>
+							</div>
+
+							<ul class="topbar-right">
+								<li class="dropdown dropdown-profile">
+									<a href="javascript:void(0)" data-toggle="dropdown">
+										<!--<img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="笔下光年" />-->
+										<span id="user">用户名<span class="caret"></span></span>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<!--<li>
+											<a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a>
+										</li>-->
+										<li>
+											<a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="javascript:window.localStorage.removeItem('date');clearCookie('user');window.location.href = 'login.html';"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
+										</li>
+									</ul>
+								</li>
+								<!--切换主题配色-->
+								<li class="dropdown dropdown-skin">
+									<span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+									<ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+										<li class="drop-title">
+											<p>主题</p>
+										</li>
+										<li class="drop-skin-li clearfix">
+											<span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+										</li>
+										<li class="drop-title">
+											<p>LOGO</p>
+										</li>
+										<li class="drop-skin-li clearfix">
+											<span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+										</li>
+										<li class="drop-title">
+											<p>头部</p>
+										</li>
+										<li class="drop-skin-li clearfix">
+											<span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>
+											<span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>
+											<span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>
+											<span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>
+											<span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>
+											<span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+										</li>
+										<li class="drop-title">
+											<p>侧边栏</p>
+										</li>
+										<li class="drop-skin-li clearfix">
+											<span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+											<span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+										</li>
+									</ul>
+								</li>
+								<!--切换主题配色-->
+							</ul>
+
+						</div>
+					</nav>
+
+				</header>
+				<!--End 头部信息-->
+
+				<!--页面主要内容-->
+				<main class="lyear-layout-content">
+
+					<div class="container-fluid">
+
+						<div class="row">
+							<div class="col-sm-6 col-lg-3">
+								<div class="card bg-primary">
+									<div class="card-body clearfix">
+										<div class="pull-right">
+											<p class="h6 text-white m-t-0">累计登录次数</p>
+											<p class="h3 text-white m-b-0" id="lognum">获取中...</p>
+										</div>
+										<div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-currency-cny fa-1-5x"></i></span> </div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-lg-3">
+								<div class="card bg-danger">
+									<div class="card-body clearfix">
+										<div class="pull-right">
+											<p class="h6 text-white m-t-0">当前用户身份</p>
+											<p class="h3 text-white m-b-0" id="usertype">获取中...</p>
+										</div>
+										<div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fa-1-5x"></i></span> </div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-lg-3">
+								<div class="card bg-success">
+									<div class="card-body clearfix">
+										<div class="pull-right">
+											<p class="h6 text-white m-t-0">本次登录时间</p>
+											<p class="h3 text-white m-b-0" id="date">获取中...</p>
+										</div>
+										<div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-lg-3">
+								<div class="card bg-purple">
+									<div class="card-body clearfix">
+										<div class="pull-right">
+											<p class="h6 text-white m-t-0">当前登录IP</p>
+											<p class="h3 text-white m-b-0" id="ip">获取中...</p>
+										</div>
+										<div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>公告板</h4>
+									</div>
+									<div class="card-body">
+										<span id="tip">加载公告信息...</span>
+										<strong id="notice"></strong>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<h4 id="uinfo">用户信息（加载中...）</h4>
+									</div>
+									<div class="card-body">
+										<label for="stu_photo">照片</label><br />
+										<h5 id="stu_photo_load"></h5>
+										<img id="stu_photo" /><br />
+										<label for="stu_id">学籍号</label>
+										<h5 id="stu_id"></h5>
+										<label for="stu_self_id">证件号码</label>
+										<h5 id="stu_self_id"></h5>
+										<label for="stu_name">姓名</label>
+										<h5 id="stu_name"></h5>
+										<label for="stu_sex">性别</label>
+										<h5 id="stu_sex"></h5>
+										<label for="stu_nation">民族</label>
+										<h5 id="stu_nation"></h5>
+										<label for="stu_date">出生年月日</label>
+										<h5 id="stu_date"></h5>
+										<label for="stu_age">年龄</label>
+										<h5 id="stu_age"></h5>
+										<label for="stu_class_grade">班级</label>
+										<h5 id="stu_class_grade"></h5>
+										<label for="stu_chuzhong">初中毕业学校</label>
+										<h5 id="stu_chuzhong"></h5>
+										<label for="stu_premaj">入学专业</label>
+										<h5 id="stu_premaj"></h5>
+										<label for="stu_premaj_ach">入学专业成绩</label>
+										<h5 id="stu_premaj_ach"></h5>
+										<label for="stu_type">学生类型</label>
+										<h5 id="stu_type"></h5>
+										<label for="stu_maj_type">专业类型</label>
+										<h5 id="stu_maj_type"></h5>
+										<h5 id="stu_maj_type2"></h5>
+										<h5 id="stu_maj_type3"></h5>
+										<h5 id="stu_maj_type4"></h5>
+										<label for="stu_maj">现所学专业</label>
+										<h5 id="stu_maj"></h5>
+										<h5 id="stu_maj2"></h5>
+										<h5 id="stu_maj3"></h5>
+										<h5 id="stu_maj4"></h5>
+										<label for="stu_con">联系方式</label>
+										<h5 id="stu_con"></h5>
+										<label for="stu_home">家庭联系方式</label>
+										<h5 id="stu_home"></h5>
+										<label for="stu_honor">所获奖励</label>
+										<h5 id="stu_honor"></h5>
+										<label for="stu_punish">惩戒记录</label>
+										<h5 id="stu_punish"></h5>
+										<div style="text-align: right;">
+											<button id="export_word" class="btn btn-primary btn-w-md page-btn" type="button">导出到word</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>成绩曲线</h4>
+									</div>
+									<div class="card-body">
+										<div>
+											<select class="form-control record" id="record" name="record" size="1">
+												<option value="5">请选择记录时长</option>
+												<option value="5">最近5次 (默认)</option>
+												<option value="10">最近10次</option>
+												<option value="15">最近15次</option>
+												<option value="20">最近20次</option>
+												<option value="25">最近25次</option>
+												<option value="30">最近30次</option>
+												<option value="35">最近35次</option>
+												<option value="40">最近40次</option>
+												<option value="45">最近45次</option>
+												<option value="50">最近50次</option>
+											</select><br />
+											<div  style="width: 100%;padding-right:2%;display: inline-flex;">
+										<input type="number" class="form-control" placeholder="或自定义最近次数..." id="scontent" >
+											<span class="input-group-btn">
+                       							<button class="btn btn-default confirm" type="button" >确定</button>
+                    						 </span>
+											</div>
+										</div>
+											
+
+
+										<canvas id="chart-line-4" width="400" height="250"></canvas>
+										<p>表格没有加载出来？
+											<a href="javascript:line(5);">点击此处</a> 刷新一下</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" id="radar">
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>成绩雷达图</h4>
+									</div>
+									<div class="card-body">
+										<canvas id="chart-radar" width="360" height="360"></canvas>
+										<span>表格没有加载出来？<a href="javascript:radar();">点击此处</a> 刷新一下</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--<div class="row">
+          
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>操作记录</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>操作次数</th>
+                        <th>操作栏目</th>
+                        <th>最后操作时间</th>
+                        <th>IP地址</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>设计新主题</td>
+                        <td>10/02/2019</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>网站重新设计</td>
+                        <td>01/03/2019</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>模型设计</td>
+                         <td>10/10/2019</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>后台管理系统模板设计</td>
+                        <td>25/01/2019</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>前端设计</td>
+                        <td>10/10/2019</td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>桌面软件测试</td>
+                        <td>10/01/2019</td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>APP改版开发</td>
+                        <td>25/02/2019</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>Logo设计</td>
+                        <td>10/02/2019</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>-->
+
+					</div>
+
+				</main>
+				<!--End 页面主要内容-->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+		<script type="text/javascript" src="js/main.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/cookie.js"></script>
+		<script type="text/javascript" src="js/Chart.js"></script>
+		<script>
+			//全局区
+			window.stu_all_honor = "";
+			window.stu_all_punish = ""
+		</script>
+		<script>
+			Date.prototype.format = function(fmt) { //author: meizz 
+				var o = {
+					"M+": this.getMonth() + 1, //月份 
+					"d+": this.getDate(), //日 
+					"h+": this.getHours(), //小时 
+					"m+": this.getMinutes(), //分 
+					"s+": this.getSeconds(), //秒 
+					"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+					"S": this.getMilliseconds() //毫秒 
+				};
+				if(/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+				for(var k in o)
+					if(new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+				return fmt;
+			}
+		</script>
+		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<!--获取IP地址接口-->
+
+		<script>
+			window.onload = function() {
+				var now = new Date($.ajax({
+					async: false
+				}).getResponseHeader("Date"));
+				var name = getCookie("user").toString();
+				//		document.getElementById("date").innerHTML = now.format("yyyy-MM-dd hh:mm:ss");
+
+				//检查cookie
+				if(getCookie("user").toString() != '') {
+
+					if(window.localStorage.getItem("date") == null) {
+						window.localStorage.setItem("date", now.format("yyyy-MM-dd hh:mm:ss"));
+						document.getElementById("date").innerHTML = window.localStorage.getItem("date");
+					} else {
+						document.getElementById("date").innerHTML = window.localStorage.getItem("date");
+					}
+				} else {
+					window.location.href = 'login.html'
+					return false;
+				}
+
+				document.getElementById("ip").innerHTML = returnCitySN['cip'];
+
+				//	 document.getElementById("lognum").innerHTML = "111"+" "+"次";
+				document.getElementById("usertype").innerHTML = "学生";
+
+				document.getElementById("user").innerHTML = getCookie("user");
+				//				//检查用户权限
+				//				$.ajax({
+				//					type: "post",
+				//					url: "./php/get_config.php",
+				//					async: true,
+				//					dataType: 'json',
+				//					success: function(data) {
+				//						if(data.data[0].switch_ach_config == 0)
+				//							$("#m3").remove();
+				//						else
+				//							document.getElementById("m3").removeAttribute("style");
+				//
+				//						if(data.data[0].switch_person_config == 0)
+				//							$("#m2").remove();
+				//						else
+				//							document.getElementById("m2").removeAttribute("style");
+				//					}
+				//				});
+
+				$.ajax({
+					type: "post",
+					url: "./php/select_userinfo.php",
+					async: true,
+					dataType: 'json',
+					data: {
+						'stu_name': name
+					},
+					success: function(data) {
+						if(data.code == 0) {
+							//	 			console.log(JSON.stringify(data))
+							document.getElementById("uinfo").innerHTML = '用户信息';
+							document.getElementById("stu_id").innerHTML = data.data[0].stu_id;
+							document.getElementById("stu_self_id").innerHTML = data.data[0].stu_self_id;
+							document.getElementById("stu_name").innerHTML = data.data[0].stu_name;
+							document.getElementById("stu_sex").innerHTML = data.data[0].stu_sex;
+							document.getElementById("stu_nation").innerHTML = data.data[0].stu_nation;
+							document.getElementById("stu_date").innerHTML = data.data[0].stu_date;
+							document.getElementById("stu_age").innerHTML = data.data[0].stu_age;
+							document.getElementById("stu_class_grade").innerHTML = "<span id='stu_grade'>" + data.data[0].stu_grade + '级</span>' + ' ' + "<span id='stu_class'>" + data.data[0].stu_class + "班</span>"
+							document.getElementById("stu_chuzhong").innerHTML = data.data[0].stu_chuzhong;
+							document.getElementById("stu_premaj").innerHTML = data.data[0].stu_premaj;
+							document.getElementById("stu_premaj_ach").innerHTML = data.data[0].stu_premaj_ach;
+							document.getElementById("stu_type").innerHTML = data.data[0].stu_type;
+							document.getElementById("stu_maj").innerHTML = data.data[0].stu_maj;
+							document.getElementById("stu_maj_type").innerHTML = data.data[0].stu_maj_type;
+							document.getElementById("stu_maj2").innerHTML = data.data[0].stu_maj2;
+							document.getElementById("stu_maj_type2").innerHTML = data.data[0].stu_maj_type2;
+							document.getElementById("stu_maj3").innerHTML = data.data[0].stu_maj3;
+							document.getElementById("stu_maj_type3").innerHTML = data.data[0].stu_maj_type3;
+							document.getElementById("stu_maj4").innerHTML = data.data[0].stu_maj4;
+							document.getElementById("stu_maj_type4").innerHTML = data.data[0].stu_maj_type4;
+							document.getElementById("stu_con").innerHTML = data.data[0].stu_con;
+							document.getElementById("stu_home").innerHTML = '父亲姓名：' + "<span id='stu_home_father_name'>" + data.data[0].stu_home_father_name + "</span><br>" + "父亲联系方式：" + "<span id='stu_home_father_phone'>" + data.data[0].stu_home_father_phone + "</span><br>" + "母亲姓名：" + "<span id='stu_home_mother_name'>" + data.data[0].stu_home_mother_name + '</span><br>' + '母亲联系方式：' + "<span id='stu_home_mother_phone'>" + data.data[0].stu_home_mother_phone + "</span>";
+							//document.getElementById("stu_honor").innerHTML = data.data[0].stu_honor;
+							var stu_honor = data.data[0].stu_honor;
+							stu_honor = stu_honor.replace(/[\n]/g, "<br>");;
+							document.getElementById("stu_honor").innerHTML = stu_honor;
+							window.stu_all_honor = data.data[0].stu_honor;
+
+							var stu_punish = data.data[0].stu_punish;
+							stu_punish = stu_punish.replace(/[\n]/g, "<br>");;
+							document.getElementById("stu_punish").innerHTML = stu_punish;
+							window.stu_all_punish = data.data[0].stu_punish;
+
+							document.getElementById("lognum").innerHTML = data.data[0].stu_loginnum + " 次";
+						} else {
+							document.getElementById("uinfo").innerHTML = '用户信息';
+							document.getElementById("stu_id").innerHTML = '无记录';
+							document.getElementById("stu_self_id").innerHTML = '无记录';
+							document.getElementById("stu_name").innerHTML = '无记录';
+							document.getElementById("stu_sex").innerHTML = '无记录';
+							document.getElementById("stu_nation").innerHTML = '无记录';
+							document.getElementById("stu_date").innerHTML = '无记录';
+							document.getElementById("stu_age").innerHTML = '无记录';
+							document.getElementById("stu_class_grade").innerHTML = '无记录';
+							document.getElementById("stu_chuzhong").innerHTML = '无记录';
+							document.getElementById("stu_premaj").innerHTML = '无记录';
+							document.getElementById("stu_premaj_ach").innerHTML = '无记录';
+							document.getElementById("stu_type").innerHTML = '无记录';
+							document.getElementById("stu_maj").innerHTML = '无记录';
+							document.getElementById("stu_maj_type").innerHTML = '无记录';
+							document.getElementById("stu_maj2").innerHTML = '无记录';
+							document.getElementById("stu_maj_type2").innerHTML = '无记录';
+							document.getElementById("stu_maj3").innerHTML = '无记录';
+							document.getElementById("stu_maj_type3").innerHTML = '无记录';
+							document.getElementById("stu_maj4").innerHTML = '无记录';
+							document.getElementById("stu_maj_type4").innerHTML =
+							document.getElementById("stu_con").innerHTML = '无记录';
+							document.getElementById("stu_home").innerHTML = '无记录';
+							document.getElementById("stu_honor").innerHTML = '无记录';
+							document.getElementById("stu_punish").innerHTML = '无记录';
+							$("#export_word").remove();
+							document.getElementById("lognum").innerHTML = data.data[0].stu_loginnum + " 次";
+
+						}
+					}
+				});
+				//加载照片
+				document.getElementById("stu_photo").src = "./photo/" + getCookie("user").toString() + ".png"
+				document.getElementById("stu_photo_load").setAttribute("style", "display: none;");
+				$.ajax({
+					type: "post",
+					url: "./php/get_notice.php",
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						document.getElementById("tip").setAttribute("style", 'display: none');
+						//document.getElementById("notice").innerHTML = data.data[0].notice;
+						var notice = data.data[0].notice;
+						notice = notice.replace(/[\n]/g, "<br>");;
+						document.getElementById("notice").innerHTML = notice;
+					}
+				});
+
+			} //记录登录时间
+		</script>
+		<script>
+			//line
+			function line(val) {
+				var maj = new Array();
+				var chart1 = new Array();
+				var chart2 = new Array();
+				var chart3 = new Array();
+				var chart4 = new Array();
+				var label = new Array();
+				for(var i = 1; i <= val; i++) //显示次数
+					label[i - 1] = i;
+				//chart js
+				$.ajax({
+					type: "post",
+					url: "./php/select_userinfo.php",
+					async: true,
+					dataType: 'json',
+					data: {
+						'stu_name': getCookie("user").toString()
+					},
+					success: function(data) {
+						if(data.code == 0) {
+							if(data.data[0].stu_type == "普通体育特长生") {
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach_maj.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString()
+									},
+									success: function(data) {
+										maj.push(data.data[0].stu_maj_type + "-" + data.data[0].stu_maj);
+										maj.push(data.data[0].stu_maj_type2 + "-" + data.data[0].stu_maj2);
+										maj.push(data.data[0].stu_maj_type3 + "-" + data.data[0].stu_maj3);
+										maj.push(data.data[0].stu_maj_type4 + "-" + data.data[0].stu_maj4);
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': maj[0]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart1.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': maj[1]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart2.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': maj[2]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart3.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': maj[3]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart4.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								//chart
+								var set1 = [{
+										label: maj[0],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#36a2eb",
+										backgroundColor: "#36a2eb",
+										pointBackgroundColor: "#36a2eb",
+										pointBorderColor: "#36a2eb",
+										pointHoverBackgroundColor: "#fff",
+										pointHoverBorderColor: "#36a2eb",
+										data: chart1
+									},
+									{
+										label: maj[1],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#ff6384",
+										backgroundColor: "#ff6384",
+										pointBackgroundColor: "#ff6384",
+										pointBorderColor: "#ff6384",
+										pointHoverBackgroundColor: "#fff",
+										pointHoverBorderColor: "#ff6384",
+										data: chart2
+									}, {
+										label: maj[2],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#548B54",
+										backgroundColor: "#548B54",
+										pointBackgroundColor: "#548B54",
+										pointBorderColor: "#548B54",
+										pointHoverBackgroundColor: "#fff",
+										pointHoverBorderColor: "#548B54",
+										data: chart3
+									},
+									{
+										label: maj[3],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#8E388E",
+										backgroundColor: "#8E388E",
+										pointBackgroundColor: "#8E388E",
+										pointBorderColor: "#8E388E",
+										pointHoverBackgroundColor: "#8E388E",
+										pointHoverBorderColor: "#8E388E",
+										data: chart4
+									},
+								];
+								new Chart($("#chart-line-4"), {
+									type: 'line',
+									data: {
+										labels: label,
+										datasets: set1
+									},
+									options: {}
+								});
+							} else {
+								var set2 = [{
+									label: maj[0],
+									fill: false,
+									borderWidth: 3,
+									pointRadius: 4,
+									borderColor: "#36a2eb",
+									backgroundColor: "#36a2eb",
+									pointBackgroundColor: "#36a2eb",
+									pointBorderColor: "#36a2eb",
+									pointHoverBackgroundColor: "#fff",
+									pointHoverBorderColor: "#36a2eb",
+									data: chart_1
+								}];
+								new Chart($("#chart-line-4"), {
+									type: 'line',
+									data: {
+										labels: label,
+										datasets: set2
+									},
+									options: {}
+								});
+							}
+						}
+					}
+				});
+
+			}
+			//根据记录选择改变长度 监听select重新执行上面代码
+			$('.record').on('change', function() {
+				var record = document.getElementById("record").value;
+				var majc = new Array();
+				var chart1 = new Array();
+				var chart2 = new Array();
+				var chart3 = new Array();
+				var chart4 = new Array();
+				var label = new Array();
+				for(var i = 1; i <= record; i++) //显示次数
+					label[i - 1] = i;
+				//chart js
+				$.ajax({
+					type: "post",
+					url: "./php/select_userinfo.php",
+					async: true,
+					dataType: 'json',
+					data: {
+						'stu_name': getCookie("user").toString()
+					},
+					success: function(data) {
+						if(data.code == 0) {
+							if(data.data[0].stu_type == "普通体育特长生") {
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach_maj.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString()
+									},
+									success: function(data) {
+										majc.push(data.data[0].stu_maj_type + "-" + data.data[0].stu_maj);
+										majc.push(data.data[0].stu_maj_type2 + "-" + data.data[0].stu_maj2);
+										majc.push(data.data[0].stu_maj_type3 + "-" + data.data[0].stu_maj3);
+										majc.push(data.data[0].stu_maj_type4 + "-" + data.data[0].stu_maj4);
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majc[0]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart1.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majc[1]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart2.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majc[2]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart3.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majc[3]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chart4.push(data.data[i - 1].ach);
+										}
+									}
+								});
+
+								//chart
+								var set1 = [{
+										label: majc[0],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#36a2eb",
+										backgroundColor: "#36a2eb",
+										pointBackgroundColor: "#36a2eb",
+										pointBorderColor: "#36a2eb",
+										pointHoverBackgroundColor: "#fff",
+										pointHoverBorderColor: "#36a2eb",
+										data: chart1
+									},
+									{
+										label: majc[1],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#ff6384",
+										backgroundColor: "#ff6384",
+										pointBackgroundColor: "#ff6384",
+										pointBorderColor: "#ff6384",
+										pointHoverBackgroundColor: "#fff",
+										pointHoverBorderColor: "#ff6384",
+										data: chart2
+									}, {
+										label: majc[2],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#548B54",
+										backgroundColor: "#548B54",
+										pointBackgroundColor: "#548B54",
+										pointBorderColor: "#548B54",
+										pointHoverBackgroundColor: "#fff",
+										pointHoverBorderColor: "#548B54",
+										data: chart3
+									},
+									{
+										label: majc[3],
+										fill: false,
+										borderWidth: 3,
+										pointRadius: 4,
+										borderColor: "#8E388E",
+										backgroundColor: "#8E388E",
+										pointBackgroundColor: "#8E388E",
+										pointBorderColor: "#8E388E",
+										pointHoverBackgroundColor: "#8E388E",
+										pointHoverBorderColor: "#8E388E",
+										data: chart4
+									},
+								];
+								new Chart($("#chart-line-4"), {
+									type: 'line',
+									data: {
+										labels: label,
+										datasets: set1
+									},
+									options: {}
+								});
+							} else {
+								var chart_1 = [66, 76, 58, 83];
+								var labels = ["1", "2", "3", "4", "5"];
+								var set2 = [{
+									label: majc[0],
+									fill: false,
+									borderWidth: 3,
+									pointRadius: 4,
+									borderColor: "#36a2eb",
+									backgroundColor: "#36a2eb",
+									pointBackgroundColor: "#36a2eb",
+									pointBorderColor: "#36a2eb",
+									pointHoverBackgroundColor: "#fff",
+									pointHoverBorderColor: "#36a2eb",
+									data: chart_1
+								}];
+								new Chart($("#chart-line-4"), {
+									type: 'line',
+									data: {
+										labels: labels,
+										datasets: set2
+									},
+									options: {}
+								});
+							}
+						}
+					}
+				});
+			});
+			line(5) //首次加载line表格 以防无法显示和监听
+		</script>
+		<script>
+			//rader
+			function radar() {
+				var majr = new Array();
+				var chartr1 = new Array();
+				var chartr2 = new Array();
+				var chartr3 = new Array();
+				var chartr4 = new Array();
+				var fchart = new Array();
+				$.ajax({
+					type: "post",
+					url: "./php/select_userinfo.php",
+					async: true,
+					dataType: 'json',
+					data: {
+						'stu_name': getCookie("user").toString()
+					},
+					success: function(data) {
+						if(data.code == 0) {
+							if(data.data[0].stu_type == "普通体育特长生") {
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach_maj.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString()
+									},
+									success: function(data) {
+										majr.push(data.data[0].stu_maj_type + "-" + data.data[0].stu_maj);
+										majr.push(data.data[0].stu_maj_type2 + "-" + data.data[0].stu_maj2);
+										majr.push(data.data[0].stu_maj_type3 + "-" + data.data[0].stu_maj3);
+										majr.push(data.data[0].stu_maj_type4 + "-" + data.data[0].stu_maj4);
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majr[0]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chartr1.push(data.data[i - 1].ach);
+											fchart.splice(4 * (i - 1), 0, data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majr[1]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chartr2.push(data.data[i - 1].ach);
+											fchart.splice(4 * (i - 1) + 1, 0, data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majr[2]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chartr3.push(data.data[i - 1].ach);
+											fchart.splice(4 * (i - 1) + 2, 0, data.data[i - 1].ach);
+										}
+									}
+								});
+
+								$.ajax({
+									type: "post",
+									url: "./php/select_ach.php",
+									async: false,
+									dataType: 'json',
+									data: {
+										"user": getCookie("user").toString(),
+										'maj': majr[3]
+									},
+									success: function(data) {
+										for(var i = 1; i <= data.count; i++) {
+											chartr4.push(data.data[i - 1].ach);
+											fchart.splice(4 * (i - 1) + 3, 0, data.data[i - 1].ach);
+										}
+									}
+								});
+								//			console.log(fchart)
+								new Chart($("#chart-radar"), {
+									type: 'radar',
+									data: {
+										labels: majr,
+										datasets: [{
+											label: '',
+											backgroundColor: "rgba(51,202,185,0.7)",
+											borderColor: "rgba(0,0,0,0)",
+											pointBackgroundColor: "rgba(51,202,185,0.7)",
+											pointBorderColor: "#fff",
+											pointHoverBackgroundColor: "#fff",
+											pointHoverBorderColor: "rgba(51,202,185,0.7)",
+											data: fchart
+										}]
+									},
+									options: {
+										responsive: false,
+										legend: {
+											display: false
+										}
+									}
+								});
+							} else {
+								document.getElementById("radar").setAttribute("style", "display: none;"); //高水平运动员和单招单项目不需要雷达图
+							}
+						}
+					}
+				});
+			}
+			radar(); //首次加载雷达图
+		</script>
+
+	</body>
+
+	<!--[if IE]>
+	导出word
+<![endif]-->
+	<script src="https://www.layuicdn.com/layui/layui.js" charset="utf-8"></script>
+	<link href="https://www.layuicdn.com/layui/css/layui.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<script src="js/FileSaver.js"></script>
+	<script src="js/wordexport.js"></script>
+	<script src="js/download.js"></script>
+	<script>
+		function IsExstsFile(yourFileURL) {
+			var flag;
+			var xmlhttp;
+			if(window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest(); //其他浏览器
+			} else if(window.ActiveXObject) {
+				try {
+					xmlhttp = new ActiveXObject("Msxml2.XMLHTTP"); //旧版IE
+				} catch(e) {}
+				try {
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); //新版IE
+				} catch(e) {}
+				if(!xmlhttp) {
+					window.alert("不能创建XMLHttpRequest对象");
+				}
+			}
+			xmlhttp.open("GET", yourFileURL, false);
+			xmlhttp.send();
+			if(xmlhttp.readyState == 4) {
+				if(xmlhttp.status == 200)
+					flag = true;
+				else
+					flag = false;
+			}
+			return flag;
+		}
+	</script>
+
+	<script src="js/jconfirm/jquery-confirm.min.js"></script>
+	<script src="js/bootstrap-notify.min.js"></script>
+	<script type="text/javascript" src="js/lightyear.js"></script>
+	<script>
+		jQuery(document).ready(function($) {
+			$("button.page-btn").click(function(event) {
+				var stu_id = document.getElementById("stu_id").innerHTML;
+				var stu_self_id = document.getElementById("stu_self_id").innerHTML;
+				var stu_name = document.getElementById("stu_name").innerHTML;
+				var stu_sex = document.getElementById("stu_sex").innerHTML;
+				var stu_nation = document.getElementById("stu_nation").innerHTML;
+				var stu_date = document.getElementById("stu_date").innerHTML;
+				var stu_age = document.getElementById("stu_age").innerHTML;
+				var stu_grade = document.getElementById("stu_grade").innerHTML;
+				var stu_class = document.getElementById("stu_class").innerHTML;
+				var stu_chuzhong = document.getElementById("stu_chuzhong").innerHTML;
+				var stu_premaj = document.getElementById("stu_premaj").innerHTML;
+				var stu_premaj_ach = document.getElementById("stu_premaj_ach").innerHTML;
+				var stu_type = document.getElementById("stu_type").innerHTML;
+				var stu_maj_type = document.getElementById("stu_maj_type").innerHTML;
+				var stu_maj = document.getElementById("stu_maj").innerHTML;
+				var stu_maj_type2 = document.getElementById("stu_maj_type2").innerHTML;
+				var stu_maj2 = document.getElementById("stu_maj2").innerHTML;
+				var stu_maj_type3 = document.getElementById("stu_maj_type3").innerHTML;
+				var stu_maj3 = document.getElementById("stu_maj3").innerHTML;
+				var stu_maj_type4 = document.getElementById("stu_maj_type4").innerHTML;
+				var stu_maj4 = document.getElementById("stu_maj4").innerHTML;
+				var stu_con = document.getElementById("stu_con").innerHTML;
+				var stu_home_father_name = document.getElementById("stu_home_father_name").innerHTML;
+				var stu_home_father_phone = document.getElementById("stu_home_father_phone").innerHTML;
+				var stu_home_mother_name = document.getElementById("stu_home_mother_name").innerHTML;
+				var stu_home_mother_phone = document.getElementById("stu_home_mother_phone").innerHTML;
+				var stu_honor = window.stu_all_honor;
+				var stu_punish = window.stu_all_punish;
+
+				$.ajax({
+					type: "post",
+					url: "./php/export_stuinfo_to_word.php",
+					async: true,
+					data: {
+						'stu_photo': '../photo/' + getCookie("user") + ".png",
+						'stu_id': stu_id,
+						'stu_self_id': stu_self_id,
+						'stu_name': stu_name,
+						'stu_sex': stu_sex,
+						'stu_nation': stu_nation,
+						'stu_date': stu_date,
+						'stu_age': stu_age,
+						'stu_grade': stu_grade,
+						'stu_class': stu_class,
+						'stu_chuzhong': stu_chuzhong,
+						'stu_premaj': stu_premaj,
+						'stu_premaj_ach': stu_premaj_ach,
+						'stu_maj_type': stu_maj_type,
+						'stu_type': stu_type,
+						'stu_maj': stu_maj,
+						'stu_home_father_name': stu_home_father_name,
+						'stu_maj_type2': stu_maj_type2,
+						'stu_maj2': stu_maj2,
+						'stu_maj_type3': stu_maj_type3,
+						'stu_maj3': stu_maj3,
+						'stu_maj_type4': stu_maj_type4,
+						'stu_maj4': stu_maj4,
+						'stu_con': stu_con,
+						'stu_home_father_phone': stu_home_father_phone,
+						'stu_home_mother_name': stu_home_mother_name,
+						'stu_home_mother_phone': stu_home_mother_phone,
+						'stu_honor': stu_honor,
+						'stu_punish': stu_punish
+					}
+				});
+				while(!IsExstsFile("./temp/" + stu_name + "_person_inform.docx")) {
+					//等待
+					//      	console.log(1)  btn btn-primary btn-w-md page-btn
+					//		document.getElementById("export_page")[0].setAttribute("class","btn btn-secondary page-btn");
+					//		document.getElementById("export_page").innerHTML = '生成中，请稍后...'
+				}
+				lightyear.notify('文档生成完成，请在弹出窗口中选择路径下载！', 'success', 5000, 'mdi mdi-checkbox-marked-circle-outline', 'top', 'right');
+				// document.getElementById("export_page")[0].setAttribute("class","btn btn-primary btn-w-md page-btn");
+				//	document.getElementById("export_page").innerHTML = '导出到Word'
+				//启动下载
+				download("./temp/" + stu_name + "_person_inform.docx", stu_name + "的个人信息")
+			});
+
+		});
+	</script>
+<script>
+	$('.confirm').on('click', function () {
+		var val	= document.getElementById("scontent").value;
+	  	if(val == ""){
+	  		layer.msg("空白值无效！",{icon:2,anim:6});
+	  		return false;
+	  	}
+	  line(val);
+	
+	});
+</script>
+</html>

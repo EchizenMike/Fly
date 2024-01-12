@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>高考信息登记</title>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<meta name="author" content="yinqi">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/materialdesignicons.min.css" rel="stylesheet">
+<link href="css/style.min.css" rel="stylesheet">
+<link rel="stylesheet" href="js/jconfirm/jquery-confirm.min.css">
+<link href="css/animate.css" rel="stylesheet"> <!--动画效果-->
+</head>
+  <style>
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+</style>
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+        <aside class="lyear-layout-sidebar">
+       
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="index.html"><img src="images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll">
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item"> <a href="index.html"><i class="mdi mdi-home"></i>首页</a> </li>
+            <li class="nav-item nav-item-has-subnav" id="m2">
+              <a href="javascript:void(0)"><i class="mdi mdi-account"></i>个人信息</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="lyear_forms_elements.html">个人信息维护</a> </li>
+                <!--<li> <a href="lyear_forms_radio.html">单选框</a> </li>
+                <li> <a href="lyear_forms_checkbox.html">复选框</a> </li>
+                <li> <a href="lyear_forms_switch.html">开关</a> </li>-->
+              </ul>
+            </li>
+           
+          <li class="nav-item nav-item-has-subnav active open" id="m3">
+              <a href="javascript:void(0)"><i class="mdi mdi-content-paste"></i>成绩登记</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="lyear_pages_edit_ach.html">平日成绩登记</a> </li>
+                <li class="active"> <a href="lyear_pages_edit_gk_ach.html">高考信息登记</a> </li>
+              </ul>
+            </li>
+       
+           
+          </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+					<p class="copyright">Copyright &copy; 2020. All rights reserved.<br /> 青岛市实验高级中学 版权所有<br /> 鲁ICP备06019373号-2</p> 
+        </div>
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title">高考信息登记 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <!--<img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="笔下光年" />-->
+                <span id="user">用户名 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li> <!--<a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>-->
+                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li> <a href="javascript:window.localStorage.removeItem('date');clearCookie('user');window.location.href = 'login.html';"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+		    <li class="dropdown dropdown-skin">
+			  <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+			  <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+			    <li class="drop-title"><p>LOGO</p></li>
+				<li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+				</li>
+				<li class="drop-title"><p>头部</p></li>
+				<li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+				</li>
+				<li class="drop-title"><p>侧边栏</p></li>
+				<li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+				</li>
+			  </ul>
+			</li>
+            <!--切换主题配色-->
+          </ul>
+          
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row" >
+          <div class="col-lg-12">
+            <div class="card">              	 
+            	<div class="card-header" style="display: none;" id="card_header">
+                <h4 id="card_header_title"></h4>
+              </div>
+              <div class="card-body" id="card_body" >
+                <form method="post" action="" class="site-form" onsubmit="return false;">
+                    <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-3">
+                      <label for="sumach">高考专业</label>
+                        <input class="form-control" type="text" id="stu_gk_pro" placeholder="请输入高考专业..." >
+                      </div>
+                      <div class="col-xs-3">
+                      <label for="sumach">高考专业分数</label>
+                        <input class="form-control" type="number" id="stu_gk_pro_ach" placeholder="请输入高考专业分数...">
+                      </div>
+                        <div class="col-xs-3">
+                        <label for="mjcont">高考录取院校</label>
+                        <input class="form-control" type="text" id="stu_gk_adm_sch" placeholder="请输入高考录取院校...">
+          </div>
+                      <div class="col-xs-3">
+                        <label for="sumach">高考文化成绩</label>
+                        <input class="form-control" type="number" id="sumach" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+                      </div>
+                      <div class="col-xs-3">
+                      	<label for="mjcont">专项内容</label>
+                        <input class="form-control" type="text" id="mjcont" placeholder="请输入...">
+                      </div>
+                       	<div class="col-xs-3">
+                      	<label for="mjcont">专项成绩</label>
+                        <input class="form-control" type="number" id="mjach" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+                      </div>
+                       <div class="col-xs-3" id="p_tj100">
+                      	<label for="tj_100">田径-100米成绩</label>
+                        <input class="form-control" type="number" id="tj_100" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+                      </div>
+                       <div class="col-xs-3" id="p_tj_ldty">
+                      	<label for="tj_ldty">田径-立定跳远成绩</label>
+                        <input class="form-control" type="number" id="tj_ldty" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+                      </div>
+                       <div class="col-xs-3" id="p_tj_qq">
+                      	<label for="tj_qq">田径-铅球成绩</label>
+                        <input class="form-control" type="number" id="tj_qq" placeholder="请输入..." oninput="if(value.length>5)value=value.slice(0,5)">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary sub" type="submit">保存</button>
+                  </div>
+                </form>
+
+              </div>
+
+            </div>                       
+
+          </div>
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+<script src="js/jconfirm/jquery-confirm.min.js"></script>
+<script src="js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="js/lightyear.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
+<script type="text/javascript">
+$('.sub').on('click', function () {
+    $.alert({
+        title: '确认',
+        content: '请仔细确认： <br> 您所填写的内容 <strong>准确无误</strong>！',
+		buttons: {
+			confirm: {
+				text: '确认',
+				btnClass: 'btn-primary',
+				action: function(){
+         var name = getCookie("user").toString();
+         var sumach = document.getElementById("sumach").value;
+				 var mjcont = document.getElementById("mjcont").value;
+				 var mjach =	document.getElementById("mjach").value;
+         var stu_tj_100_ach = document.getElementById("tj_100").value;
+         var stu_tj_ldty_ach = document.getElementById("tj_ldty").value;
+         var stu_tj_qq_ach = document.getElementById("tj_qq").value;
+         var stu_gk_pro = document.getElementById("stu_gk_pro").value;
+         var stu_gk_pro_ach = document.getElementById("stu_gk_pro_ach").value;
+         var stu_gk_adm_sch = document.getElementById("stu_gk_adm_sch").value;
+         $.ajax({
+                  	type:"post",
+                  	url:"./php/update_gkinfo.php",
+                  	async:false,
+                  	dataType:'json',
+                  	data:{'stu_name':name,'stu_ach':sumach,'stu_pro_name':mjcont,'stu_pro_ach':mjach,'stu_tj_100_ach':stu_tj_100_ach,'stu_tj_ldty_ach':stu_tj_ldty_ach,'stu_tj_qq_ach':stu_tj_qq_ach,'stu_gk_pro':stu_gk_pro,'stu_gk_pro_ach':stu_gk_pro_ach,'stu_gk_adm_sch':stu_gk_adm_sch},
+                	  success:function(data){
+                  		if(data.code ==  0 ){
+                  					lightyear.notify('保存成功！', 'success', 5000, 'mdi mdi-checkbox-marked-circle-outline', 'top', 'right');
+                  		}else{
+                  					lightyear.notify('保存失败！', 'danger', 5000, 'mdi mdi-close-circle-outline', 'top', 'right');
+                  		}
+                  },
+                  error:function(error){
+                  	console.log(error)
+                  }
+                 });  
+				}
+			},
+			cancel: {
+				text: '取消',
+				action: function () {
+                    lightyear.notify('取消操作！', 'danger', 5000, 'mdi mdi-close-circle-outline', 'top', 'right');
+				}
+			}
+		}
+    });
+});
+</script>
+<script>
+	window.onload = function(){
+		var name = getCookie("user").toString();
+		document.getElementById("user").innerHTML = getCookie("user");
+			//检查用户权限
+				$.ajax({
+					type: "post",
+					url: "./php/get_config.php",
+					async: true,
+					dataType: 'json',
+					success: function(data) {
+						if(data.data[0].switch_ach_config_gk == 0){
+							$("#card_body").remove();
+							document.getElementById("card_header").removeAttribute("style");
+							document.getElementById("card_header_title").innerHTML = "管理员未开放此功能，禁止操作！"
+							document.getElementById("card_header_title").setAttribute("style","text-align: center;")
+						
+//						              <div class="card-header">
+//              <h4 id="card_header_title">历史成绩登记记录</h4>
+//            </div>
+						}
+					}
+				});
+		
+		$.ajax({
+			type:"post",
+			url:"./php/select_gkinfo.php",
+			async:true,
+			dataType:'json',
+			data:{'stu_name':name},
+			success:function(data){
+				if(data.code == 0){
+					if(data.data[0].stu_type == '高水平运动员'||data.data[0].stu_type == '单独招生入学'){
+						document.getElementById("p_tj100").setAttribute("style","display: none;");
+						document.getElementById("p_tj_ldty").setAttribute("style","display: none;");
+						document.getElementById("p_tj_qq").setAttribute("style","display: none;");
+					document.getElementById("sumach").value = data.data[0].stu_ach;
+					document.getElementById("mjcont").value = data.data[0].stu_pro_name;
+					document.getElementById("mjach").value = data.data[0].stu_pro_ach;
+					//新增三项
+					document.getElementById("stu_gk_pro").value = data[0].stu_gk_pro;
+					document.getElementById("stu_gk_pro_ach").value = data[0].stu_gk_pro_ach;
+					document.getElementById("stu_gk_adm_sch").value = data[0].stu_gk_adm_sch;
+					}else{
+					document.getElementById("sumach").value = data.data[0].stu_ach;
+					document.getElementById("mjcont").value = data.data[0].stu_pro_name;
+					document.getElementById("mjach").value = data.data[0].stu_pro_ach;
+					document.getElementById("tj_100").value = data.data[0].stu_tj_100_ach;
+					document.getElementById("tj_ldty").value = data.data[0].stu_tj_ldty_ach;
+					document.getElementById("tj_qq").value = data.data[0].stu_tj_qq_ach;
+					//新增3项
+					document.getElementById("stu_gk_pro").value = data.data[0].stu_gk_pro;
+					document.getElementById("stu_gk_pro_ach").value = data.data[0].stu_gk_pro_ach;
+					document.getElementById("stu_gk_adm_sch").value = data.data[0].stu_gk_adm_sch;
+					}
+					
+					
+				}
+			}
+		});
+	}
+
+</script>
+<script>
+	if(getCookie("user").toString() == ''){
+		window.location.href = 'login.html';
+	}
+</script>
+</body>
+</html>
